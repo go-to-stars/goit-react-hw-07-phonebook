@@ -2,8 +2,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 import { nanoid } from 'nanoid';
-import { addContact } from '../../redux/contactsSlice';
-import { getContacts } from '../../redux/selectors';
+// import { addContact } from '../../redux/contactsSlice';
+import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
+
+// import { getContacts } from '../../redux/selectors';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -38,9 +41,9 @@ const INITIAL_STATE = {
 }; // ініціалізація полів форми
 
 export const ContactForm = () => {
-  const contacts = useSelector(getContacts); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора
+  // const contacts = useSelector(getContacts); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch(); //виклик хука useDispatch повертає посилання на dispatch функцію зі сховища Redux, для відправки action за потреби
-
   const addNewContact = e => {
     if (
       contacts.find(

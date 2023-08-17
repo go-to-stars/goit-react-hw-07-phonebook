@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsSlice';
+// import { deleteContact } from '../../redux/contactsSlice';
+import { deleteContact } from '../../redux/operations';
 import PropTypes from 'prop-types'; // імпорт PropTypes для документування призначених типів властивостей, що передаються компонентам
 import { Text, Button } from './ContactListItem.styled'; // імпорт стилів тегів ul(List), li(ListItem), p(Text), Button
 

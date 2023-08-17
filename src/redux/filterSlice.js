@@ -13,8 +13,4 @@ const filterSlice = createSlice({
 }); // функція filterSlice, яка приймає «ім’я фрагмента» (name), початковий стан (initialState) та об’єкт функції редюсера (setFilter) та автоматично генерує дії (action), які відповідають редюсеру і стану (state)
 
 export const { setFilter } = filterSlice.actions; // експорт функції редюсера (setFilter) для генерації дій (actions) функції filterSlice 
-export const filterReducer = filterSlice.reducer; // експорт редюсера функції filterSlice 
-
-// Selectors
-
-
+export const filterReducer = filterSlice.reducer; // експорт редюсера функції filterSlice

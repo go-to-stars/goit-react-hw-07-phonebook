@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
-import { getContacts, getFilter } from '../../redux/selectors';
+// import { getContacts, getFilter } from '../../redux/selectors';
+import { selectContacts, selectFilter } from '../../redux/selectors';
 import { ContactListItem } from '../ContactListItem/ContactListItem';
 import { List, ListItem } from './ContactList.styled'; // імпорт стилів тегів ul(List), li(ListItem), p(Text), Button
 
 export const ContactList = () => {
-  const contacts = useSelector(getContacts); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора getContacts
-  const filter = useSelector(getFilter); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора getFilter
+  const contacts = useSelector(selectContacts); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора getContacts
+  const filter = useSelector(selectFilter); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора getFilter
 
   const filterContacts = () =>
     filter === ''

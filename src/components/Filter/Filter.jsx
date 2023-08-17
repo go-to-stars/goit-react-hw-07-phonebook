@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from '../../redux/filterSlice';
-import { getFilter } from '../../redux/selectors';
+// import { getFilter } from '../../redux/selectors';
+import { selectFilter } from '../../redux/selectors';
 import { Label, Input } from './Filter.styled'; // імпорт стилів тегів Label, Input
-
 export const Filter = () => {
-  const filter = useSelector(getFilter); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора getFilter
+  const filter = useSelector(selectFilter); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора getFilter
   const dispatch = useDispatch(); //виклик хука useDispatch повертає посилання на dispatch функцію зі сховища Redux, для відправки action за потреби
 
   const formChange = e => {
