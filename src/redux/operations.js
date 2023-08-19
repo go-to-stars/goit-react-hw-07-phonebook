@@ -8,10 +8,10 @@ export const fetchContacts = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/contacts'); // запит списку контактів
-      return response.data; // повертаємо дані відповіді, якщо promice повернуто з відповідю (без помилки)
+      return response.data; // при успішному запиті повертаємо проміс із даними (список контактів)
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
-    } // якщо promice відхилено (помилка), то повертаємо функцію thunkAPI.rejectWithValue з аргументом - повідомленням об'єкта помилки
+    } // при помилці запиту повертаємо проміс, який буде відхилений з текстом помилки (функцію thunkAPI.rejectWithValue з аргументом - повідомленням об'єкта помилки)
   }
 ); // асинхронна фукція fetchContacts очікує та повертає, за допомогою бібліотеки "axios", проміс отриманих даних (список контактів)
 
@@ -20,11 +20,11 @@ export const addContact = createAsyncThunk(
   async ({ name, number }, thunkAPI) => {
     try {
       const response = await axios.post('/contacts', { name, number }); // запит на додавання контакту з name і number у список контактів (id генерує бекенд)
-      return response.data; // повертаємо дані відповіді, якщо promice повернуто з відповідю (без помилки)
+      return response.data; // при успішному запиті повертаємо проміс із даними (список контактів з доданим)
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
-    } // якщо promice відхилено (помилка), то повертаємо функцію thunkAPI.rejectWithValue з аргументом - повідомленням об'єкта помилки
-  }
+    } // при помилці запиту повертаємо проміс, який буде відхилений з текстом помилки (функцію thunkAPI.rejectWithValue з аргументом - повідомленням об'єкта помилки)
+  }   
 ); // асинхронна фукція addContact очікує та повертає, за допомогою бібліотеки "axios", проміс отриманих даних (список контактів після додавання контакту)
 
 export const deleteContact = createAsyncThunk(
@@ -32,10 +32,10 @@ export const deleteContact = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axios.delete(`/contacts/${id}`); // запит на видалення контакту з id з списку контактів
-      return response.data; // повертаємо дані відповіді, якщо promice повернуто з відповідю (без помилки)
+      return response.data; // при успішному запиті повертаємо проміс із даними (список контактів без видаленого)
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
-    } // якщо promice відхилено (помилка), то повертаємо функцію thunkAPI.rejectWithValue з аргументом - повідомленням об'єкта помилки
+    } // при помилці запиту повертаємо проміс, який буде відхилений з текстом помилки (функцію thunkAPI.rejectWithValue з аргументом - повідомленням об'єкта помилки)
   }
 ); // асинхронна фукція addContact очікує та повертає, за допомогою бібліотеки "axios", проміс отриманих даних (список контактів після видалення контакту)
 

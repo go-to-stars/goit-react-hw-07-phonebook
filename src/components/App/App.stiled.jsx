@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const Container = styled.div`
   // display: flex;
@@ -82,5 +82,20 @@ export const Title = styled.h2`
   }
   @media (max-width: 767.98px) {
     margin: 5px auto;
+  }
+`;
+
+export const Error = styled.p`
+  margin: 0;
+
+  font-size: 14px;
+  color: red;
+
+  @media (max-width: 1023.98px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 767.98px) {
+    font-size: 10px;
   }
 `;
