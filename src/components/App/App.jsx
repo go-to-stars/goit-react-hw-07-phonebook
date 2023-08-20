@@ -6,7 +6,8 @@ import { ContactList } from '../ContactList/ContactList';
 import { fetchContacts } from 'redux/operations';
 import { selectError, selectIsLoading } from 'redux/selectors';
 import { Loader } from '../Loader/Loader';
-import { Container, Box, TopTitle, Title, Error } from './App.stiled.jsx'; // імпорт стилів тегів div (Container), div (Box), h1 (TopTitle), h2 (Title)
+import Notiflix from 'notiflix';
+import { Container, Box, TopTitle, Title } from './App.stiled.jsx'; // імпорт стилів тегів div (Container), div (Box), h1 (TopTitle), h2 (Title)
 
 export const App = () => {
   const dispatch = useDispatch(); //виклик хука useDispatch повертає посилання на dispatch функцію зі сховища Redux, для відправки action за потреби
@@ -25,7 +26,7 @@ export const App = () => {
         <Title>Contacts</Title>
         <Filter />
         {isLoading && !error && <Loader />}
-        {error && <Error>{error}</Error>}
+        {error && Notiflix.Notify.failure(`${error}`)}
         {!isLoading && <ContactList />}
       </Box>
     </Container>

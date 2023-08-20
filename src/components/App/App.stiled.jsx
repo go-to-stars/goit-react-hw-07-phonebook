@@ -85,17 +85,17 @@ export const Title = styled.h2`
   }
 `;
 
-export const Error = styled.p`
-  margin: 0;
+// export const Error = styled.p`
+//   margin: 0;
 
-  font-size: 14px;
-  color: red;
+//   font-size: 14px;
+//   color: red;
 
-  @media (max-width: 1023.98px) {
-    font-size: 12px;
-  }
+//   @media (max-width: 1023.98px) {
+//     font-size: 12px;
+//   }
 
-  @media (max-width: 767.98px) {
-    font-size: 10px;
-  }
-`;
+//   @media (max-width: 767.98px) {
+//     font-size: 10px;
+//   }
+// `;

@@ -1,22 +1,10 @@
 import { useSelector } from 'react-redux';
-// import { getContacts, getFilter } from '../../redux/selectors';
-import { selectContacts, selectFilter } from '../../redux/selectors';
+import { selectVisibleContact } from '../../redux/selectors';
 import { ContactListItem } from '../ContactListItem/ContactListItem';
 import { List, ListItem } from './ContactList.styled'; // імпорт стилів тегів ul(List), li(ListItem), p(Text), Button
 
 export const ContactList = () => {
-  const contacts = useSelector(selectContacts); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора getContacts
-  const filter = useSelector(selectFilter); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора getFilter
-
-  const filterContacts = () =>
-    filter === ''
-      ? contacts
-      : contacts.filter(contact =>
-          contact.name.toLowerCase().includes(filter.toLowerCase())
-        );
-  // функція filterContacts повертає повний список контактів, якщо поле фільтра порожнє, інакше повертає відфільтровний список контактів, приведений до нижнього регістру
-
-  const filteredContacts = filterContacts(); // масив відфільтрованих контактів
+  const filteredContacts = useSelector(selectVisibleContact); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора filteredContacts
 
   return (
     filteredContacts.length > 0 && (
@@ -31,6 +19,6 @@ export const ContactList = () => {
           </ListItem>
         ))}
       </List>
-    ) // створення списку елементів ul, якщо є хоча б один контакт
+    ) // створення списку елементів ul, якщо є хоча б один контакт, що відповідає критеріям пошуку
   );
 }; // повернення розмітки списку контактів функції ContactList
