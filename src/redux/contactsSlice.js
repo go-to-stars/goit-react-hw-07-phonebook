@@ -35,9 +35,9 @@ const contactsSlice = createSlice({
     [deleteContact.pending]: isPending, // очікування завантаження списку контактів після видалення контакту (стан isLoading = true)
     [deleteContact.fulfilled](state, action) {
       state.isLoading = false;
-      state.error = null;     
+      state.error = null;
       state.items.splice(
-        state.items.findIndex(contact => contact.id === action.payload),
+        state.items.findIndex(contact => contact.id === action.payload.id),
         1
       );
     }, // успішне виконання запиту (видалення контакту): зміна стану isLoading на false, обнулення помилки, запис даних (списку контактів після видалення) в стан

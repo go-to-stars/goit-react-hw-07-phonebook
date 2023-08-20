@@ -4,7 +4,7 @@ import { ContactListItem } from '../ContactListItem/ContactListItem';
 import { List, ListItem } from './ContactList.styled'; // імпорт стилів тегів ul(List), li(ListItem), p(Text), Button
 
 export const ContactList = () => {
-  const filteredContacts = useSelector(selectVisibleContact); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора filteredContacts
+  const filteredContacts = useSelector(selectVisibleContact); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора selectVisibleContact
 
   return (
     filteredContacts.length > 0 && (

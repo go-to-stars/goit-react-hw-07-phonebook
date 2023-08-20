@@ -6,9 +6,9 @@ import { Text, Button } from './ContactListItem.styled'; // імпорт сти�
 export const ContactListItem = ({ id, name, number }) => {
   const dispatch = useDispatch(); //виклик хука useDispatch повертає посилання на dispatch функцію зі сховища Redux, для відправки action за потреби
 
-  const onDeleteContact = id => {
+  const onDeleteContact = id => {    
     dispatch(deleteContact(id));
-  }; // функція onDeleteContact видаляє по id контакт з стану в stor
+  }; // функція onDeleteContact видаляє контакт по id
 
   return (
     <>

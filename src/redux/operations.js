@@ -20,11 +20,11 @@ export const addContact = createAsyncThunk(
   async ({ name, number }, thunkAPI) => {
     try {
       const response = await axios.post('/contacts', { name, number }); // запит на додавання контакту з name і number у список контактів (id генерує бекенд)
-      return response.data; // при успішному запиті повертаємо проміс із даними (список контактів з доданим)
+      return response.data; // при успішному запиті повертаємо проміс із даними (доданий контакт)
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     } // при помилці запиту повертаємо проміс, який буде відхилений з текстом помилки (функцію thunkAPI.rejectWithValue з аргументом - повідомленням об'єкта помилки)
-  }   
+  }
 ); // асинхронна фукція addContact очікує та повертає, за допомогою бібліотеки "axios", проміс отриманих даних (список контактів після додавання контакту)
 
 export const deleteContact = createAsyncThunk(
@@ -32,7 +32,7 @@ export const deleteContact = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axios.delete(`/contacts/${id}`); // запит на видалення контакту з id з списку контактів
-      return response.data; // при успішному запиті повертаємо проміс із даними (список контактів без видаленого)
+      return response.data; // при успішному запиті повертаємо проміс із даними (видалений контакт)
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     } // при помилці запиту повертаємо проміс, який буде відхилений з текстом помилки (функцію thunkAPI.rejectWithValue з аргументом - повідомленням об'єкта помилки)
